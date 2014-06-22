@@ -1,0 +1,53 @@
+body{
+    font-family:georgia;
+    font-size:14px;
+    line-height:1.4em;
+  }
+
+  .container{
+    width:866px;
+    margin:0 auto;
+  }
+
+  a:link, a:visited {
+    color: #49D28D;
+    text-decoration: none;
+  }
+
+  h1, h3{
+    font-family: Futura, 'Century Gothic', AppleGothic, sans-serif;
+  }
+
+  h1{
+    font-size: 5.2rem;
+    line-height: 5.2rem;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 25px;
+  }
+
+  .nav{
+    border-bottom: 1px solid #eeeeee ;
+    padding-bottom:20px;
+    height:20px;
+    width:100%;
+  }
+
+  .nav ul{
+      margin:0 auto;
+      padding:0;
+      width:240px;
+  }
+
+  .nav ul li{
+    float:left;
+    margin-left:25px;
+  }
+
+    .nav ul li :first-child{
+    margin-left:0;
+  }
+
+  .page-content{
+    margin-top:10px;
+  }
