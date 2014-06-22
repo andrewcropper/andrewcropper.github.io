@@ -16,58 +16,21 @@
 </script>
 
 
-<!--
-    "Quite Big" theme designed by
-
-                                       |             |    |           
-  _` |  _ \  _ \   __| _` |  _ \    _` | |   | __ \  |  / |  _ \ |   |
- (   |  __/ (   | |   (   |  __/   (   | |   | |   |   <  |  __/ |   |
-\__, |\___|\___/ _|  \__, |\___|  \__,_|\__,_|_|  _|_|\_\_|\___|\__, |
-|___/                |___/                                      ____/ 
-
-
-    http://www.tumblr.com/theme/9601     Version 2.5     15/08/2013
-  -->
-
-
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-  <meta name="color:Background" content="#ffffff"/>
-  <meta name="color:Title" content="#000000"/>
-  <meta name="color:Text" content="#202020"/>
-  <meta name="color:Minor text" content="#999999"/>
-  <meta name="color:Line" content="#EEEEEE"/>
-  <meta name="color:Link" content="#49D28D"/>
-  <meta name="color:Link hover" content="#3FB67A"/>
-<meta name="color:Top line" content="#eeeeee"/>
-<meta name="color:Bottom line" content="#eeeeee"/>
-<meta name="color:Notes background" content="#f7f7f7"/>
-<meta name="if:Center all" content="0"/> 
-<meta name="if:Center links" content="1"/>   
-<meta name="if:Large Photoset" content="0"/>
-<meta name="font:Heading" content="Futura"/>
-<meta name="image:Header" content="0">
-<meta name="if:Show notes on permalink pages" content="1">
-<meta name="if:Ask Link" content="0" />
-<meta name="if:Submit Link" content="0" />
-<meta name="if:Stretch small images" content="0" />
-
-
-<meta name="text:Caption size" content="14px"/>
-<meta name="text:Title size" content="20px"/>
-<meta name="text:Header size" content="85px"/>
-
-
-<meta name="font:Description" content="Georgia"/>
-<meta name="font:Body" content="Georgia"/>
-  
-<meta name="text:Disqus Shortname" content=""/>
-
-  <title>{Title}{block:PostSummary}: {PostSummary}{/block:PostSummary}</title>
-  {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
-
-  <link rel="shortcut icon" href="{Favicon}"/>
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [[ '$','$']],
+      displayMath:  [['$$','$$']],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script> 
+<script type="text/javascript" 
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js">
+</script>
 
   <style type="text/css">
 body,div,h1,h2,h3,h4,h5,h6,p,blockquote,pre,code,dl,dt,dd,ul,ol,li,th,td,form,fieldset,legend,input,textarea{margin:0;padding:0;}
@@ -320,68 +283,6 @@ a {
 {CustomCSS}
   </style>
 
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-
-
-{block:IfLargePhotoset}
-
-<script>
-
-$(document).ready(function(){
-$(".photoset").each(function() {
-    $(this).width('875px');
-    var newSrc = $(this).attr("src").replace('700','875');
-    $(this).attr("src", newSrc);
-});
-
-
-$(function(){
-var iFrames = $('.photoset');
-
-function iResize() {
-    for (var i = 0, j = iFrames.length; i < j; i++) {
-    iFrames[i].style.height = iFrames[i].contentWindow.document.body.offsetHeight + 'px';}
-  }
-  
-  if ($.browser.safari || $.browser.opera) { 
-    iFrames.load(function(){
-      setTimeout(iResize, 0); 
-    });
-    
-    for (var i = 0, j = iFrames.length; i < j; i++) {
-      var iSource = iFrames[i].src;
-      iFrames[i].src = '';
-      iFrames[i].src = iSource;
-    }
-  } else {
-    iFrames.load(function() {
-      this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
-    });
-  }
-});
-});
-</script>
-
-{/block:IfLargePhotoset}
-
-
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ["tex2jax.js"],
-    jax: ["input/TeX", "output/HTML-CSS"],
-    tex2jax: {
-      inlineMath: [[ '$','$']],
-      displayMath:  [['$$','$$']],
-      processEscapes: true
-    },
-    "HTML-CSS": { availableFonts: ["TeX"] }
-  });
-</script> 
-<script type="text/javascript" 
-src="http://cdn.mathjax.org/mathjax/latest/MathJax.js">
-</script>
 
 </head>
 <body>
