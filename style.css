@@ -5,7 +5,7 @@ body{
   }
 
   .container{
-    width:866px;
+    width:650;
     margin:0 auto;
   }
 
@@ -36,7 +36,7 @@ body{
   .nav ul{
       margin:0 auto;
       padding:0;
-      width:300px;
+      width:350;
   }
 
   .nav ul li{
