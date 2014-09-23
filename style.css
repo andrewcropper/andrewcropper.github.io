@@ -5,14 +5,21 @@ body{
   }
 
   .container{
-    width:700;
+    width:650;
     margin:0 auto;
   }
 
   a:link, a:visited {
+    color: #000000;
+    /*text-decoration: none;*/
+  }
+
+
+  .nav a {
     color: #49D28D;
     text-decoration: none;
   }
+
 
   h1, h3{
     font-family: Futura, 'Century Gothic', AppleGothic, sans-serif;
@@ -44,7 +51,7 @@ body{
     margin-left:25px;
   }
 
-    .nav ul li :first-child{
+  .nav ul li :first-child{
     margin-left:0;
   }
 
