@@ -11,9 +11,14 @@ body{
 
   a:link, a:visited {
     color: #000000;
+    /*color: #49D28D;*/
     /*text-decoration: none;*/
   }
 
+
+  .banner a {
+    text-decoration: none;
+  }
 
   .nav a {
     color: #49D28D;
@@ -34,6 +39,7 @@ body{
   }
 
   .nav{
+    text-align: center;
     border-bottom: 1px solid #eeeeee ;
     padding-bottom:20px;
     height:20px;
@@ -41,9 +47,10 @@ body{
   }
 
   .nav ul{
+      text-align: center;
       margin:0 auto;
       padding:0;
-      width:390;
+      width:350;
   }
 
   .nav ul li{
