@@ -4,6 +4,10 @@ body{
     line-height:1.5em;
   }
 
+ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
+    margin:0;
+    padding:0;
+}
   .container{
     width:700;
     margin:0 auto;
