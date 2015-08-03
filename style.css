@@ -1,3 +1,8 @@
+table{
+    font-family:georgia;
+    font-size:14px;
+    line-height:1.5em;
+}
 body{
     font-family:georgia;
     font-size:14px;
@@ -9,14 +14,12 @@ ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
     padding:0;
 }
   .container{
-    width:800;
+    width:700;
     margin:0 auto;
   }
 
   a:link, a:visited {
     color: #000000;
-    /*color: #49D28D;*/
-    /*text-decoration: none;*/
   }
 
 
