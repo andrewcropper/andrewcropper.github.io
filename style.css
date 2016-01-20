@@ -78,3 +78,7 @@ ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
   .page-content{
     margin-top:10px;
   }
+
+li{
+  margin: 3px 0;
+}
