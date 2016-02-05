@@ -1,13 +1,13 @@
 table{
-    font-family:georgia;
-    /*font-family:gill sans;*/
+    /*font-family:georgia;*/
+    font-family:gill sans;
     font-size:15px;
     line-height:1.5em;
 }
 body{
     font-family:georgia;
     /*font-family:gill sans;*/
-    font-size:15px;
+    font-size:14px;
     line-height:1.5em;
   }
 
@@ -16,7 +16,7 @@ ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
     padding:0;
 }
   .container{
-    width:800;
+    width:650;
     margin:0 auto;
   }
 
@@ -30,8 +30,8 @@ ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
   }
 
   .nav a {
-    color: #49D28D;
-    text-decoration: none;
+    /*color: #49D28D;*/
+    /*text-decoration: none;*/
   }
 
 
@@ -72,7 +72,7 @@ ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
   }
 
   .noun{
-    font-size: 20px;
+    /*font-size: 20px;*/
   }
 
   .page-content{
