@@ -23,7 +23,7 @@ table{
 body{
     font-family:georgia;
     /*font-family:gill sans;*/
-    font-size:14px;
+    font-size:13px;
     line-height:1.5em;
   }
 
@@ -32,7 +32,7 @@ ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
     padding:0;
 }
   .container{
-    width:700;
+    width:600;
     margin:0 auto;
   }
 
