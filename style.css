@@ -29,7 +29,7 @@ body{
 
 ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
     margin:0;
-    padding:0;
+    padding:5;
 }
   .container{
     width:600;
