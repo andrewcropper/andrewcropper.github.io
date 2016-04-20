@@ -1,3 +1,9 @@
+  #header #info {
+    display: inline-block;
+    text-align: left;
+    border: thin black
+}
+
   #left
     {
       width: 200px;
@@ -26,6 +32,9 @@ body{
     /*font-family:bitstream-charter;*/
     /*font-family: 'Bitstream Charter';*/
     /*font-variant: normal;*/
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
 
     /*font-family: "Avenir Next" !important;*/
     /*font-family: "Avenir" !important;*/
