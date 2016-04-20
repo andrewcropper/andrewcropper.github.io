@@ -23,6 +23,13 @@ table{
 body{
     font-family:georgia;
     /*font-family:gill sans;*/
+    /*font-family:bitstream-charter;*/
+    /*font-family: 'Bitstream Charter';*/
+    /*font-variant: normal;*/
+
+    /*font-family: "Avenir Next" !important;*/
+    /*font-family: "Avenir" !important;*/
+
     font-size:13px;
     line-height:1.5em;
   }
@@ -32,7 +39,7 @@ ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
     padding:5;
 }
   .container{
-    width:650;
+    width:600;
     margin:0 auto;
   }
 
