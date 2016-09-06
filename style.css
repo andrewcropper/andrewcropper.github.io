@@ -1,6 +1,6 @@
 body{
   font-family:georgia;
-  font-size:13px;
+  font-size:14px;
   line-height:1.5em;
 }
 
@@ -10,7 +10,7 @@ ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
 }
 
 .container{
-  width:750;
+  width:600;
   margin:0 auto;
 }
 
