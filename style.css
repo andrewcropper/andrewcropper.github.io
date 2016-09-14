@@ -25,6 +25,7 @@ a:link, a:visited {
   padding-bottom:10px;
   height:20px;
   width:100%;
+  list-style-type: none;
 }
 
 .nav ul{
@@ -32,6 +33,7 @@ a:link, a:visited {
     margin:0 auto;
     padding:0;
     width:290;
+    list-style-type: none;
 }
 
 .nav ul li{
