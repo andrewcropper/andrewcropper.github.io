@@ -1,7 +1,8 @@
 body{
   font-family:georgia;
-  font-size:13px;
+  font-size:13.4px;
   line-height:1.5em;
+  /*line-height:2em;*/
 }
 
 ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
