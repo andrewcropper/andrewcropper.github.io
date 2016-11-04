@@ -1,12 +1,11 @@
 body{
   font-family:georgia;
-  font-size:13.4px;
+  font-size:13px;
   line-height:1.5em;
-  /*line-height:2em;*/
 }
 
-ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
-  margin:0;
+ul, ol {
+  margin:5 5 5 20;
   padding:0;
 }
 
@@ -17,33 +16,6 @@ ul, ol {  //THERE MAY BE OTHER ELEMENTS IN THE LIST
 
 a:link, a:visited {
   color: #000000;
-}
-
-
-.nav{
-  text-align: center;
-  border-bottom: 1px solid #eeeeee ;
-  padding-bottom:10px;
-  height:20px;
-  width:100%;
-  list-style-type: none;
-}
-
-.nav ul{
-    text-align: center;
-    margin:0 auto;
-    padding:0;
-    width:290;
-    list-style-type: none;
-}
-
-.nav ul li{
-  float:left;
-  margin-left:20px;
-}
-
-.page-content{
-  margin-top:10px;
 }
 
 li{
