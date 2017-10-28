@@ -1,24 +1,20 @@
 body{
   /*font-family:georgia;*/
   font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-  font-size:14px;
+  font-size:15px;
   line-height:1.5em;
 }
 
 ul, ol {
-  margin:5 5 5 20;
+  margin:5 0 5 20;
   padding:0;
 }
 
 .container{
-  width:600;
+  width:800;
   margin:0 auto;
 }
 
 a:link, a:visited {
   color: #000000;
-}
-
-li{
-  margin: 2px 0;
 }
