@@ -1,19 +1,7 @@
 body{
-  /*font-family:georgia;*/
-  /*font-family: 'Bitstream Charter';*/
-  font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-  font-size:15px;
-  line-height:1.6em;
-}
-
-ul, ol {
-  margin:5 0 5 20;
-  padding:0;
-}
-
-.container{
-  width:800;
-  margin:0 auto;
+  font-family: monospace;
+  font-size:16px;
+  line-height:1.5em;
 }
 
 a:link, a:visited {
