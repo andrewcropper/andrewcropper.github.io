@@ -1,9 +1,13 @@
-body{
-  font-family: monospace;
-  /*font-family: Bitstream Charter;*/
 
-  font-size:13pt;
-  line-height:1.5em;
+body{
+  /*font-family: monospace;*/
+  /*font-family: Bitstream Charter;*/
+  font-family: 'Inconsolata';
+  /*font-size: 22px;*/
+
+
+  font-size:18pt;
+  line-height:1.4em;
 }
 
 a:link, a:visited {
