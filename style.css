@@ -6,12 +6,16 @@ body{
   /*font-size: 22px;*/
 
 
-  font-size:18pt;
+  font-size:19pt;
   line-height:1.4em;
 }
 
 a:link, a:visited {
   color: #000000;
+}
+
+li{
+  margin: 10px 0;
 }
 
 .container{
