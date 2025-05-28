@@ -20,7 +20,7 @@
             justify-content: center;
         }
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0px;
             line-height: 1.6;
             color: #333;
@@ -41,7 +41,30 @@
         a:hover {
             text-decoration: underline;
         }
+
         table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 10px;
+            }
+            th, td {
+                padding: 10px;
+                text-align: left;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #fafafa;
+            }
+            tr:hover {
+                background-color: #f0f8ff;
+            }
+            td:first-child {
+                font-weight: bold;
+                white-space: nowrap;
+            }
+
+
+      /*  table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 0px;
@@ -55,7 +78,7 @@
         }
         th {
             background-color: #f2f2f2;
-        }
+        }*/
     </style>
 </head>
 <body>
@@ -73,7 +96,7 @@
 </div>
 
         <h2>Publications</h2>
-        <a href="https://dblp.org/pid/153/8346.html">DBLP</a> <a href="https://scholar.google.co.uk/citations?user=AtZc544AAAAJ">Scholar</a>
+        <a href="https://dblp.org/pid/153/8346.html">DBLP</a> | <a href="https://scholar.google.co.uk/citations?user=AtZc544AAAAJ">Scholar</a>
         <table>
 <tbody>
 

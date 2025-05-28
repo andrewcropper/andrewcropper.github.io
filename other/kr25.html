@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inductive Logic Programming: An Introduction and Recent Advances</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .author {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section h2 {
+            color: #2a5298;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .section h3 {
+            color: #4a5568;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+        }
+        
+        .section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .keywords {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        
+        .duration-info {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        
+        .goals {
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+        
+        .part-title {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .system-highlight {
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        
+        .challenges {
+            background: linear-gradient(135deg, #fd7e14, #e17055);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+        
+        .references {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .references h2 {
+            color: #2d3436;
+            margin-bottom: 1rem;
+        }
+        
+        .reference-item {
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+            text-indent: -1rem;
+        }
+        
+        .cv-section {
+            background: linear-gradient(135deg, #55a3ff, #003d82);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        strong {
+            color: #2a5298;
+        }
+        
+        .white-text strong {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Inductive Logic Programming: An Introduction and Recent Advances</h1>
+            <div class="author">
+                <strong>Andrew Cropper</strong><br>
+                University of Oxford<br>
+                andrew.cropper@cs.ox.ac.uk
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="keywords">
+                    <strong>Keywords:</strong> Inductive logic programming, symbolic learning, logic programming
+                </div>
+                
+                <div class="duration-info">
+                    <strong>Suggested Duration:</strong> 3 hours and 30 minutes, plus 30 minutes break<br>
+                    <strong>Target Audience:</strong> KR researchers interested in machine learning (ML)<br>
+                    <strong>Prerequisites:</strong> Basic knowledge of first-order logic will be helpful but not essential as we will provide a brief refresher at the start of the tutorial.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Tutorial Outline</h2>
+                <p>The main limitations of standard ML approaches include poor generalisation, a lack of interpretability, and a need for large numbers of training examples (Marcus 2018; Chollet 2019; Bengio et al. 2019). Unbeknown to many researchers, recent work in Inductive Logic Programming (ILP) (Muggleton 1991; Cropper et al. 2022) has shown promise at addressing these issues. ILP is a form of AI that combines knowledge representation and machine learning. In other words, ILP combines logical reasoning and data-driven learning.</p>
+                
+                <p>The goal of ILP is to induce a hypothesis logic that generalises training examples and background knowledge. The distinguishing feature of ILP is that it uses first-order logic to represent hypotheses, examples, and background knowledge. This tutorial will build on a recent JAIR paper (Cropper and Dumancic 2022) and a AAAI23 tutorial and provide an introduction to ILP. We will cover major recent breakthroughs (Cropper et al. 2022), notably in recursion and predicate invention. We will also emphasise the connections between ILP and the wider AI community, principally the KR community. We hope to bridge the gap between these communities and foster future research by highlighting these connections.</p>
+            </div>
+
+            <div class="section goals white-text">
+                <h2>Goals of the Tutorial</h2>
+                <p>The two main goals of this tutorial are to <strong>(G1) introduce ILP to a KR audience</strong> and <strong>(G2) help bridge the gap between the ML and KR communities</strong>. For G1, recent breakthroughs in ILP have shown promise at addressing the major limitations of standard ML approaches (Cropper et al. 2022), chiefly through learning recursive theories and predicate invention (the automatic discovery of novel high-level concepts). Our goal is to disseminate these breakthroughs to a wider audience.</p>
+                
+                <p>For G2, ILP is uniquely placed to attract a broad AI audience and help bridge the gap between ML and KR. Because it uses logic programming as a uniform representation for data, the tutorial will interest the logic programming and knowledge representation and reasoning communities. For instance, many recent ILP approaches use answer set programming (Corapi, Russo, and Lupu 2011; Law et al. 2020; Kaminski, Eiter, and Inoue 2019; Schüller and Benz 2018; Evans et al. 2021). Similarly, many recent advances in ILP come from using state-of-the-art techniques from constraint programming and Boolean satisfiability.</p>
+                
+                <p>We want to bridge the gap between ILP and these communities. By doing so, ILP can greatly benefit from the ideas and expertise of researchers in these fields. Similarly, other communities can benefit from the challenges faced by ILP. By the end of the tutorial, we hope to have increased the likelihood of collaboration and interchange of ideas between the communities.</p>
+            </div>
+
+            <div class="section">
+                <h2>History</h2>
+                <p>This tutorial is a revised and improved version of a tutorial ran at AAAI23. The motivation for running a tutorial now is that ILP has recently turned 30 (Cropper et al. 2022). To acknowledge this milestone, two of the presenters recently published a JAIR paper (Cropper and Dumancic 2022) aimed at introducing ILP to a broad audience, which has thus far been well received. This tutorial will build on this paper.</p>
+                
+                <p>Moreover, the past decade has seen major breakthroughs in ILP (Cropper et al. 2022), which have opened up ILP to many new and interesting programs, such as learning string transformation programs (Lin et al. 2014), understanding biological networks (Bain and Srinivasan 2018), and explaining sensory data (Evans et al. 2021).</p>
+                
+                <h3>Most Related Recent Tutorials:</h3>
+                <p>• <strong>From Statistical Relational to Neuro-Symbolic Artificial Intelligence</strong> by L. De Raedt, S. Dumančić, R. Manhaeve and G. Marra (AAAI 2021, IJCAI 2021).</p>
+                <p>• <strong>Automated Synthesis: Towards the Holy Grail of AI</strong> by K. Meel, S. Chakraborty, S. Akshay, P. Golia, S. Roy (AAAI 2022, IJCAI 2022)</p>
+            </div>
+
+            <div class="section">
+                <h2>Content</h2>
+                <p>We will split the tutorial into five parts.</p>
+
+                <div class="part-title">Part 1: Introduction [45 minutes]</div>
+                <p>We will start with a high-level introduction to ILP. We will use three different motivating scenarios/examples throughout the tutorial: (i) algorithm discovery, (ii) game playing, and (iii) scientific discovery. We will highlight the key advantages of ILP, principally explainability, knowledge transfer, and the ability to generalise from small numbers of examples. We will introduce the basic concepts of relational learning and logic programming. To do so, we will use standard textbooks (De Raedt 2008; Lloyd 2012; Gebser et al. 2012).</p>
+
+                <div class="part-title">Part 2: Building an ILP system [45 minutes]</div>
+                <p>In this section, we will explain that building an ILP system requires making several choices or assumptions. Understanding these choices is key to understanding ILP. We will explain these choices.</p>
+                
+                <h3>Learning setting</h3>
+                <p>A key decision is how to represent examples. Representations include boolean concepts, input-output examples, interpretations, and transitions. The representation determines the learning setting which in turn defines what it means to solve the ILP problem. We will introduce the various ILP learning settings.</p>
+                
+                <h3>Representation language</h3>
+                <p>ILP represents data as logic programs. There are, however, many logic programming languages, each with strengths and weaknesses. For instance, Prolog is a Turing-complete logic programming language. Datalog is a syntactical subset of Prolog that sacrifices features (such as data structures) and expressivity (it is not Turing-complete) to gain efficiency and decidability. We will explain that choosing a suitable representation language is crucial in determining which problems a system can solve.</p>
+                
+                <h3>Defining the hypothesis space</h3>
+                <p>The fundamental ILP problem is to search the hypothesis space for a suitable hypothesis. The hypothesis space contains all possible programs that can be built in the chosen representation language. Unrestricted, the hypothesis space is infinite, so it is vital to restrict it to make the search feasible. As with all ML techniques, ILP restricts the hypothesis space by enforcing an inductive bias. For instance, a language bias enforces restrictions on hypotheses, such as how many variables or relations can be in a hypothesis. We will explain how choosing an appropriate language bias is necessary for efficient learning and is a major challenge. We will introduce the most commonly used language biases, namely modes (Muggleton 1995) and metarules (Muggleton, Lin, and Tamaddoni-Nezhad 2015).</p>
+                
+                <h3>Search method</h3>
+                <p>Having defined the hypothesis space, the problem is to efficiently search it. The traditional way to categorise approaches is whether they use a top-down (Quinlan 1990; Blockeel and De Raedt 1998) or bottom-up (Muggleton and Feng 1990; Muggleton and Buntine 1988) search. However, a third approach has recently emerged called meta-level ILP (Inoue 2016; Cropper et al. 2022). Most meta-level approaches delegate the search for a hypothesis to an off-the-shelf solver, such as an ASP (Law et al. 2020) or constraint solver (Albarghouthi et al. 2017). We will explain the various search methods.</p>
+
+                <div class="part-title">Part 3: ILP features [45 minutes]</div>
+                <p>In part 3, we will focus on which features to support in an ILP system, such as whether to support noisy data. We will highlight the main features and the current approaches to support them.</p>
+                
+                <h3>Noise</h3>
+                <p>Noise handling is important in ML. Most ILP systems support learning programs from noisy examples. For instance, ILASP (Law, Russo, and Broda 2014) uses the optimisation features of ASP solvers to handle noise. We will describe the main approaches to handling noise in ILP.</p>
+                
+                <h3>Optimality</h3>
+                <p>There are often multiple (sometimes an infinite number) hypotheses that solve the ILP problem. In such cases, which hypothesis should we choose? Many recent systems try to learn a textually optimal/minimal hypothesis (Corapi, Russo, and Lupu 2011; Law, Russo, and Broda 2014; Muggleton, Lin, and Tamaddoni-Nezhad 2015; Cropper and Morel 2021). Some recent approaches can even learn the most efficient program (Cropper and Muggleton 2019). We will cover these recent approaches.</p>
+                
+                <h3>Recursion</h3>
+                <p>Recursion is often crucial to learn general theories from small numbers of examples. For instance, consider learning the concept of reachability in a graph. Without recursion, an ILP system would need to learn a separate rule to define reachability at each different depth. By contrast, with recursion, an ILP system can learn a small two-rule program that generalises reachability to arbitrary depth. The ability to learn recursive programs has transformed ILP and has opened many applications, such as string transformations (Lin et al. 2014). We will cover these major breakthroughs.</p>
+                
+                <h3>Predicate invention</h3>
+                <p>Russell (Russell 2019) argues that the automatic invention of new high-level concepts is the most important step needed to reach human-level AI. In ILP the ability to invent new high-level concepts is known as predicate invention (PI). PI has repeatedly been stated as a major challenge (Muggleton et al. 2012). However, recent work has made major breakthroughs in PI (Muggleton, Lin, and Tamaddoni-Nezhad 2015; Hocquette and Muggleton 2020), which we will cover in this section.</p>
+
+                <div class="part-title">Part 4: Use cases [45 minutes]</div>
+                <p>To help introduce ILP to a wide audience, we will cover two systems in detail. We will focus on two recent systems because of their strong connections with answer set programming and constraint solving.</p>
+                
+                <div class="system-highlight white-text">
+                    <h3>ASPAL</h3>
+                    <p>ASPAL (Corapi, Russo, and Lupu 2011) was one of the first meta-level ILP systems. ASPAL is one of the simplest ILP systems to explain. It precomputes every possible rule that could be in a hypothesis. It then searches for a subset of the rules that generalises the training examples. To perform this search, ASPAL encodes the problem as an ASP problem. Although simple, ASPAL greatly influenced ILP and many approaches use the same rule selection approach (Law, Russo, and Broda 2014; Raghothaman et al. 2020; Evans and Grefenstette 2018; Kaminski, Eiter, and Inoue 2019; Si et al. 2019; Evans et al. 2021).</p>
+                </div>
+                
+                <div class="system-highlight white-text">
+                    <h3>POPPER</h3>
+                    <p>Similar to ASPAL, POPPER frames the ILP problem as a constraint satisfaction problem (CSP), where each solution to the CSP represents a hypothesis. However, whereas ASPAL and its descendants all first precompute every possible rule in a hypothesis, POPPER (Cropper and Morel 2021) lazily generates programs. The key idea of POPPER is to discover constraints from smaller programs to rule out larger programs. For each hypothesis generated, POPPER tests it on the training examples. If the hypothesis is not a solution, then POPPER tries to explain why. It then builds constraints from the explanation to add to the CSP problem. Adding constraints eliminates solutions to the CSP which in turn prunes the hypothesis space. POPPER has been shown to vastly outperform existing approaches and has been widely used by other researchers, such as to learn explainable solutions to Rubix Cubes (Lakkaraju et al. 2022) and higher-order programs (Purgał, Cerna, and Kaliszyk 2022).</p>
+                </div>
+
+                <div class="part-title">Part 5: Challenges and opportunities [30 minutes]</div>
+                <p>We will conclude the talk by discussing the main challenges faced in ILP and how there are opportunities for collaboration with the wider AI community. We briefly discuss two below.</p>
+                
+                <div class="challenges white-text">
+                    <h3>Learning from raw data</h3>
+                    <p>Most ILP systems require data in symbolic form, i.e. as a logic program. However, many real-world data, such as images and speech, cannot easily be translated into a symbolic form. A grand challenge in ILP (and perhaps the whole of AI) is to learn how to both perceive sensory input and learn a symbolic program to explain the input, such as learning to perform addition from MNIST digits. Developing better ILP techniques that can both perceive sensory input and learn complex relational programs would be a major breakthrough not only for ILP but the whole of AI.</p>
+                    
+                    <h3>Constraint solving</h3>
+                    <p>Many recent breakthroughs in ILP come from using constraint solvers. Almost all the recent approaches use ASP. However, ASP is only one form of constraint solving and has limitations for ILP, such as difficulty handling real numbers. Other constraint-solving approaches might be better suited to tackle the challenges faced by ILP. For instance, satisfiability modulo theories (SMT) solvers (de Moura and Bjørner 2008) naturally support arithmetic reasoning over infinite domains, yet have not been used in ILP. Likewise, many ILP problems can be directly translated to cases of the MaxSAT problem. For instance, many of the search problems in POPPER are ideally suited to incremental MaxSAT solvers, so experts in this topic could greatly improve and advance POPPER. Similarly, the organisers of the recent MaxSAT 2022 competition state that they need more challenging incremental MaxSAT problems and benchmarks, which ILP could provide. By running this tutorial we hope to bridge the gap between these communities and foster future research.</p>
+                </div>
+            </div>
+
+            <div class="section cv-section white-text">
+                <h2>Presenter CV</h2>
+                <h3>Andrew Cropper</h3>
+                <p>Andrew is a research fellow in the computer science department at the University of Oxford. He runs the Logic and Learning (LoL) group. He is the principal investigator of the ESPRC-funded (£1.4m) Automatic Computer Scientist (AutoCS) project and another EPSRC-funded project on explainable drug design. He previously held an independent junior research fellowship (2018-2021) at the University of Oxford. He studied for a PhD in computer science from Imperial College London (2018) under the supervision of Stephen Muggleton.</p>
+                
+                <p>Andrew works on ILP. He developed the ILP system Metagol and methods to learn higher-order (Cropper, Morel, and Muggleton 2020) and efficient (Cropper and Muggleton 2019) programs. Andrew has since developed a new area of ILP called learning from failures and the system POPPER (Cropper and Morel 2021; Cropper 2022). His work has won three best paper awards at the ILP conference (2014, 2018, 2019).</p>
+                
+                <p>Andrew has taught courses on logic and formal proof at the University of Oxford and Stanford University and has given talks on ILP at various institutions, including MIT and Berkeley. With Sebastijan Dumančić, he has written a survey paper (Cropper et al. 2022) and a tutorial-level article (Cropper and Dumancic 2022) on ILP.</p>
+            </div>
+
+            <div class="section references">
+                <h2>References</h2>
+                <div class="reference-item">Ahlgren, J.; and Yuen, S. Y. 2013. Efficient program synthesis using constraint satisfaction in inductive logic programming. J. Machine Learning Res., (1): 3649–3682.</div>
+                
+                <div class="reference-item">Albarghouthi, A.; Koutris, P.; Naik, M.; and Smith, C. 2017. Constraint-Based Synthesis of Datalog Programs. In Principles and Practice of Constraint Programming - 23rd International Conference, CP 2017, 689–706.</div>
+                
+                <div class="reference-item">Bain, M.; and Srinivasan, A. 2018. Identification of biological transition systems using meta-interpreted logic programs. Mach. Learn., (7): 1171–1206.</div>
+                
+                <div class="reference-item">Bengio, Y.; Deleu, T.; Rahaman, N.; Ke, N. R.; Lachapelle, S.; Bilaniuk, O.; Goyal, A.; and Pal, C. J. 2019. A Meta-Transfer Objective for Learning to Disentangle Causal Mechanisms. CoRR.</div>
+                
+                <div class="reference-item">Blockeel, H.; and De Raedt, L. 1998. Top-Down Induction of First-Order Logical Decision Trees. Artif. Intell., (1-2): 285–297.</div>
+                
+                <div class="reference-item">Chollet, F. 2019. On the Measure of Intelligence. CoRR.</div>
+                
+                <div class="reference-item">Corapi, D.; Russo, A.; and Lupu, E. 2011. Inductive Logic Programming in Answer Set Programming. In Inductive Logic Programming - 21st International Conference, 91–97.</div>
+                
+                <div class="reference-item">Cropper, A. 2022. Learning Logic Programs Though Divide, Constrain, and Conquer. In Thirty-Sixth AAAI Conference on Artificial Intelligence, AAAI 2022, 6446–6453. AAAI Press.</div>
+                
+                <div class="reference-item">Cropper, A.; and Dumancic, S. 2022. Inductive Logic Programming At 30: A New Introduction. J. Artif. Intell. Res., 74: 765–850.</div>
+                
+                <div class="reference-item">Cropper, A.; Dumancic, S.; Evans, R.; and Muggleton, S. H. 2022. Inductive logic programming at 30. Mach. Learn., 111(1): 147–172.</div>
+                
+                <div class="reference-item">Cropper, A.; and Morel, R. 2021. Learning programs by learning from failures. Mach. Learn., (4): 801–856.</div>
+                
+                <div class="reference-item">Cropper, A.; Morel, R.; and Muggleton, S. H. 2020. Learning higher-order logic programs. Mach. Learn., 109(7): 1289–1322.</div>
+                
+                <div class="reference-item">Cropper, A.; and Muggleton, S. H. 2019. Learning efficient logic programs. Mach. Learn., (7): 1063–1083.</div>
+                
+                <div class="reference-item">de Moura, L. M.; and Bjørner, N. S. 2008. Z3: An Efficient SMT Solver. In Tools and Algorithms for the Construction and Analysis of Systems, 14th International Conference, TACAS 2008, 337–340.</div>
+                
+                <div class="reference-item">De Raedt, L. 2008. Logical and relational learning. ISBN 978-3-540-20040-6.</div>
+                
+                <div class="reference-item">Dumancic, S.; Guns, T.; and Cropper, A. 2021. Knowledge Refactoring for Inductive Program Synthesis. In AAAI 2021, 7271–7278.</div>
+                
+                <div class="reference-item">Dumančić, S.; Guns, T.; Meert, W.; and Blockeel, H. 2019. Learning Relational Representations with Auto-encoding Logic Programs. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, IJCAI 2019, 6081–6087.</div>
+                
+                <div class="reference-item">Evans, R.; and Grefenstette, E. 2018. Learning Explanatory Rules from Noisy Data. J. Artif. Intell. Res., 1–64.</div>
+                
+                <div class="reference-item">Evans, R.; Hernández-Orallo, J.; Welbl, J.; Kohli, P.; and Sergot, M. J. 2021. Making sense of sensory input. Artif. Intell., 103438.</div>
+                
+                <div class="reference-item">Gebser, M.; Kaminski, R.; Kaufmann, B.; and Schaub, T. 2012. Answer Set Solving in Practice.</div>
+                
+                <div class="reference-item">Hocquette, C.; and Muggleton, S. H. 2020. Complete Bottom-Up Predicate Invention in Meta-Interpretive Learning. In Proceedings of the Twenty-Ninth International Joint Conference on Artificial Intelligence, IJCAI 2020, 2312–2318.</div>
+                
+                <div class="reference-item">Inoue, K. 2016. Meta-Level Abduction. FLAP, (1): 7–36.</div>
+                
+                <div class="reference-item">Kaminski, T.; Eiter, T.; and Inoue, K. 2019. Meta-Interpretive Learning Using HEX-Programs. In Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, IJCAI 2019, 6186–6190.</div>
+                
+                <div class="reference-item">Lakkaraju, K.; Hassan, T.; Khandelwal, V.; Singh, P.; Bradley, C.; Shah, R.; Agostinelli, F.; Srivastava, B.; and Wu, D. 2022. ALLURE: A Multi-Modal Guided Environment for Helping Children Learn to Solve a Rubik's Cube with Automatic Solving and Interactive Explanations. In Thirty-Sixth AAAI Conference on Artificial Intelligence, AAAI 2022, 13185–13187. AAAI Press.</div>
+                
+                <div class="reference-item">Law, M.; Russo, A.; Bertino, E.; Broda, K.; and Lobo, J. 2020. FastLAS: Scalable Inductive Logic Programming Incorporating Domain-Specific Optimisation Criteria. In AAAI 2020, 2877–2885.</div>
+                
+                <div class="reference-item">Law, M.; Russo, A.; and Broda, K. 2014. Inductive Learning of Answer Set Programs. In Logics in Artificial Intelligence - 14th European Conference, JELIA 2014, 311–325.</div>
+                
+                <div class="reference-item">Lin, D.; Dechter, E.; Ellis, K.; Tenenbaum, J. B.; and Muggleton, S. 2014. Bias reformulation
