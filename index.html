@@ -1,120 +1,138 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew Cropper</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
 
     <style>
         body {
-            font-family: Roboto;
+            font-family: Roboto, sans-serif;
             font-size: 20px;
-            /*font-family: Arial, sans-serif;
-            font-size: 18px;*/
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
+            overflow-x: hidden; /* Prevent content from spilling left/right */
         }
+
         .container {
             max-width: 950px;
-            margin: 0px;
+            margin: 0 10px; /* Small margin for safety on mobile */
             line-height: 1.6;
             color: #333;
             text-align: left;
         }
+
         h1 {
             font-size: 36px;
-            margin-bottom: 0px;
+            margin-bottom: 0;
         }
+
         h2 {
             font-size: 24px;
-            margin-top: 0px;
+            margin-top: 0;
         }
+
         a {
             color: #0066cc;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
 
-        table {
+        .header-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-content > div {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .header-content img {
+            height: 250px;
+            margin-left: 20px;
+            max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-content img {
+                margin: 20px 0 0 0;
+                height: auto;
                 width: 100%;
-                border-collapse: collapse;
-                margin-top: 10px;
             }
-            th, td {
-                padding: 10px;
-                text-align: left;
-                vertical-align: top;
-            }
-            tr:nth-child(even) {
-                background-color: #fafafa;
-            }
-            tr:hover {
-                background-color: #f0f8ff;
-            }
-            td:first-child {
-                font-weight: bold;
-                white-space: nowrap;
-            }
+        }
 
-
-      /*  table {
+        table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 0px;
+            margin-top: 10px;
         }
-        table, th, td {
-            border: 0px solid #ccc;
-        }
+
         th, td {
             padding: 10px;
             text-align: left;
+            vertical-align: top;
         }
-        th {
-            background-color: #f2f2f2;
-        }*/
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        tr:hover {
+            background-color: #f0f8ff;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            white-space: nowrap;
+        }
     </style>
 </head>
+
+
 <body>
 
     <div class="container">
     <h1>Andrew Cropper</h1>
-    <div style="display: flex; align-items: center;">
-    <div style="flex: 1;">
-        <p>I run the logic and learning group at the University of Oxford.
-            We work on combining logical reasoning and machine learning, known as <a href="https://arxiv.org/pdf/2008.07912.pdf">inductive logic programming</a> (ILP).
-            We develop the ILP system <a href="https://github.com/logic-and-learning-lab/Popper">Popper</a>.
-        </p>
+    <div class="header-content">
+            <div>
+                <p>I run the logic and learning group at the University of Oxford.
+                    We combine logical reasoning and machine learning, known as
+                    <a href="https://arxiv.org/pdf/2008.07912.pdf">inductive logic programming</a> (ILP).
+                    We develop the ILP system
+                    <a href="https://github.com/logic-and-learning-lab/Popper">Popper</a>.
+                </p>
 
-        <p>
-            <b>In October 2025 I will join ELLIS Institute Finland as a principal investigator and Helsinki University as an associate professor.</b>
-        </p>
+                <p>
+                    <b>In October 2025 I will join ELLIS Institute Finland as a principal investigator and Helsinki University as an associate professor.</b>
+                </p>
 
-
-
-            <!-- <p>
-                I am an associate professor at Helsinki University, where I run the logic and learning group.
-            We work on combining logic and machine learning, known as <a href="https://arxiv.org/pdf/2008.07912.pdf">inductive logic programming</a> (ILP).
-            We develop the ILP system <a href="https://github.com/logic-and-learning-lab/Popper">Popper</a>.
-            </p>
-            <p>
-            Before joining Helsinki, I led a research group at the University of Oxford for eight years. Prior to that, I did my PhD at Imperial College London.
-            </p> -->
+                <p>
+                I am looking for PhD students and postdocs to join my group in Helsinki.
+                If interested, email me at <a href="mailto:andrew.cropper@cs.ox.ac.uk">andrew.cropper@cs.ox.ac.uk</a>.
+                </p>
 
 
 
-        <!-- </p> -->
-        <p><a href="mailto:andrew.cropper@cs.ox.ac.uk">andrew.cropper@cs.ox.ac.uk</a>
-    </div>
+                <!-- <p>
+                    <a href="mailto:andrew.cropper@cs.ox.ac.uk">andrew.cropper@cs.ox.ac.uk</a>
+                </p> -->
+            </div>
 
-    <img height="250px" src="https://raw.githubusercontent.com/andrewcropper/andrewcropper.github.io/master/imgs/Andylegoman.png" style="margin-left: 20px;">
-</div>
+            <img src="https://raw.githubusercontent.com/andrewcropper/andrewcropper.github.io/master/imgs/Andylegoman.png" alt="Andrew Cropper">
+        </div>
 
         <h2>Publications</h2>
         <a href="https://dblp.org/pid/153/8346.html">DBLP</a> | <a href="https://scholar.google.co.uk/citations?user=AtZc544AAAAJ">Scholar</a>
