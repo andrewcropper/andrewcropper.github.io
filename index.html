@@ -11,31 +11,32 @@
             font-size: 18px;
             line-height: 1.6;
             max-width: 900px;
-            margin: 0px auto;
-            padding: 0 15px;
+            margin: 0 auto;
+            padding: 20px 15px;
             color: #222;
             background-color: #fcfcfc;
         }
 
         h1 {
-            font-size: 30px;
-            margin-bottom: 0.5rem;
+            font-size: 32px;
+            margin: 0 0 20px 0;
+            letter-spacing: -0.5px;
         }
 
         h2 {
             font-size: 20px;
-            margin: 1.5rem 0 0.5rem 0; /* Significantly reduced top margin from 3rem */
-            border-bottom: 1px solid #eee; /* Added a thin line to separate without huge space */
+            margin: 2.5rem 0 0.5rem 0;
+            border-bottom: 1px solid #eee;
             padding-bottom: 4px;
         }
 
         h3 {
             font-size: 18px;
-            margin: 1rem 0 0.2rem 0; /* Reduced margins */
+            margin: 1.2rem 0 0.4rem 0;
         }
 
         p {
-            margin: 0 0 10px 0; /* Consistent paragraph spacing */
+            margin: 0 0 14px 0;
         }
 
         a {
@@ -47,25 +48,48 @@
             text-decoration: underline;
         }
 
-        .header-content {
-            display: flex;
-            align-items: flex-start;
+        /* Fixed Grid Layout for the Header */
+        .header-container {
+            display: grid;
+            grid-template-columns: 200px 1fr;
             gap: 40px;
-            margin-top: 20px;
+            align-items: start;
         }
 
-        .header-content img {
-            max-width: 100%;
+        .header-container img {
+            width: 200px;
             height: auto;
+            border-radius: 2px;
+        }
+
+        .bio-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
         .contact-links {
-            margin-top: 15px;
+            margin: 5px 0 15px 0;
+        }
+
+        .hiring-notice {
+            background-color: #f0f7ff;
+            border-left: 4px solid #0066cc;
+            padding: 10px 15px;
+            margin-top: 5px;
+        }
+
+        .hiring-notice p {
+            margin: 0;
         }
 
         ul {
-            margin-top: 0;
-            margin-bottom: 0;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 4px;
         }
 
         table {
@@ -85,13 +109,15 @@
             width: 150px;
         }
 
+        /* Responsive design for smaller screens */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
+            .header-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            .header-content img {
-                width: 200px !important;
+            .header-container img {
+                width: 180px;
             }
 
             .venue {
@@ -105,22 +131,26 @@
 
     <header>
         <h1>Andrew Cropper</h1>
-        <div class="header-content">
-            <!-- <img src="https://raw.githubusercontent.com/andrewcropper/andrewcropper.github.io/master/imgs/laura_hair_flattened.jpg" alt="Andrew Cropper" style="width:200px;"> -->
-            <img src="imgs/small_profile.jpg" alt="Andrew Cropper" style="width:200px;">
-            <div>
-                <p style="margin: 0;">
-                    I am an associate professor at the University of Helsinki and a principal investigator at ELLIS Institute Finland.
-                    My group combines <b>logical reasoning</b> and <b>machine learning</b>.
-                    We focus on <a href="https://arxiv.org/pdf/2008.07912.pdf"><b>inductive logic programming</b></a> (ILP), which learns rules from data. We develop the ILP system <a href="https://github.com/logic-and-learning-lab/Popper">Popper</a>.
-                    I previously led a research group at the University of Oxford and earned my PhD at Imperial College London.
+        <div class="header-container">
+            <img src="imgs/small_profile.jpg" alt="Andrew Cropper">
+            <div class="bio-text">
+                <p>
+                    I am an associate professor at the University of Helsinki and PI at ELLIS Institute Finland.
+                    Before moving to Helsinki, I led a research group at the University of Oxford, and, before that, did my PhD at Imperial College London.
+                </p>
+                <p>
+                    My group combines <b>logic</b> and <b>machine learning</b>.
+                    We focus on <a href="https://arxiv.org/pdf/2008.07912.pdf"><b>inductive logic programming</b></a> (ILP), which learns logical rules from examples and background knowledge.
+                    We develop the ILP system
+                    <a href="https://github.com/logic-and-learning-lab/Popper">Popper</a>.
                 </p>
                 <p class="contact-links">
-                    <a href="mailto:andrew.cropper@helsinki.fi">andrew.cropper@helsinki.fi</a> |
+                    <a href="mailto:andrew.cropper@helsinki.fi">andrew.cropper@helsinki.fi</a> &nbsp;|&nbsp;
                     <a href="andrew_cropper_cv.pdf">CV</a>
                 </p>
-
-                <p><strong>I am hiring a PhD student to work on logic-based machine learning. See the <a href='join.html'>join page</a>.</strong>
+                <div class="hiring-notice">
+                    <b><p>I am hiring PhD students to work on logic-based machine learning. See the <a href="join.html">join page</a>.</b></p>
+                </div>
             </div>
         </div>
     </header>
@@ -134,12 +164,11 @@
 
         <h3>Former</h3>
         <ul>
-            <li><strong><a href="https://celinehocquette.github.io">Céline Hocquette</a></strong>, Postdoc</li>
+            <li><strong><a href="https://celinehocquette.github.io">Céline Hocquette</a></strong>, Postdoc, now researcher at Ndea</li>
+            <li><strong><a href="https://minghao-liu.github.io">Minghao Liu</a></strong>, Postdoc, now postdoc at Oxford</li>
+            <li><strong><a href="https://filipegouveia.github.io/">Filipe Gouveia</a></strong>, Postdoc, now assistant professor at University of Lisbon</li>
             <li><strong><a href="https://scholar.google.com/citations?user=9zgHnV4AAAAJ">Mingyue Liu</a></strong>, Postdoc</li>
-            <li><strong><a href="https://minghao-liu.github.io">Minghao Liu</a></strong>, Postdoc</li>
-            <li><strong><a href="https://filipegouveia.github.io/">Filipe Gouveia</a></strong>, Postdoc</li>
-            <!-- <li><strong><a href="https://scholar.google.com/citations?user=KiCL7SoAAAAJ&hl=en">Rolf Morel</a></strong>, PhD, <a href="https://ora.ox.ac.uk/objects/uuid:df5e4bcb-689d-4457-aefe-e4afbbb183e5/files/d3x816n230">Inductive logic programming as satisfiability modulo theories</a></li> -->
-            <li><strong><a href="https://scholar.google.com/citations?user=KiCL7SoAAAAJ&hl=en">Rolf Morel</a></strong>, PhD</li>
+            <li><strong><a href="https://scholar.google.com/citations?user=KiCL7SoAAAAJ&hl=en">Rolf Morel</a></strong>, PhD, now researcher at Intel</li>
         </ul>
     </section>
 
