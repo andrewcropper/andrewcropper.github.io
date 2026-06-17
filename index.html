@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew Cropper</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <style>
+        html { scrollbar-gutter: stable; }
         body {
-            font-family: system-ui, sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 18px;
             line-height: 1.6;
             max-width: 900px;
@@ -109,6 +111,38 @@
             width: 150px;
         }
 
+        nav {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 28px;
+            font-size: 18px;
+        }
+
+        .nav-name {
+            color: #222;
+            font-weight: 600;
+            font-size: 20px;
+            margin-right: auto;
+        }
+
+        nav a, nav .nav-current {
+            margin-left: 18px;
+        }
+
+        nav a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        nav .nav-current {
+            color: #222;
+            font-weight: 600;
+        }
+
         /* Responsive design for smaller screens */
         @media (max-width: 768px) {
             .header-container {
@@ -129,18 +163,24 @@
 
 <body>
 
+    <nav>
+        <span class="nav-name">Andrew Cropper</span>
+        <span class="nav-current">About</span>
+        <a href="join.html">Join</a>
+        <a href="datasets.html">Datasets</a>
+    </nav>
+
     <header>
-        <h1>Andrew Cropper</h1>
+        <!-- <h1>Andrew Cropper</h1> -->
         <div class="header-container">
             <img src="imgs/small_profile.jpg" alt="Andrew Cropper">
             <div class="bio-text">
                 <p>
                     I am an associate professor at the University of Helsinki and PI at ELLIS Institute Finland.
-                    Before moving to Helsinki, I led a research group at the University of Oxford.
-                    Before that, I did my PhD at Imperial College London.
+                    Previously, I led a research group at the University of Oxford and completed my PhD at Imperial College London.
                 </p>
                 <p>
-                    My group works on <b>logic-based machine learning</b>, i.e. <a href="https://arxiv.org/pdf/2008.07912.pdf"><b>inductive logic programming</b></a> (ILP), which learns logical rules from examples and background knowledge.
+                    My group works on <a href="https://arxiv.org/pdf/2008.07912.pdf"><b>inductive logic programming</b></a> (ILP), a form of relational machine learning that learns logical rules from examples and background knowledge.
                     We develop the ILP system
                     <a href="https://github.com/logic-and-learning-lab/Popper">Popper</a>.
                 </p>
@@ -149,7 +189,7 @@
                     <a href="andrew_cropper_cv.pdf">CV</a>
                 </p>
                 <div class="hiring-notice">
-                    <b><p>I am hiring PhD students to work on ILP. See the <a href="join.html">join page</a>.</b></p>
+                    <p><b>I am hiring PhD students. See the <a href="join.html">join page</a>.</b></p>
                 </div>
             </div>
         </div>

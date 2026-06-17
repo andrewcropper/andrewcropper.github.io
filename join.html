@@ -6,19 +6,15 @@
   <title>Andrew Cropper | Join the Group</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    html { scrollbar-gutter: stable; }
     body {
       font-family: 'Inter', sans-serif;
       font-size: 18px;
-      margin: 0;
-      padding: 40px 20px;
-      display: flex;
-      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 15px;
       line-height: 1.6;
       color: #333;
-    }
-    .container {
-      max-width: 700px;
-      width: 100%;
     }
     h2 {
       font-size: 22px;
@@ -60,6 +56,38 @@
       padding: 10px 0;
       vertical-align: top;
     }
+    nav {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 28px;
+      font-size: 18px;
+    }
+
+    .nav-name {
+      color: #222;
+      font-weight: 600;
+      font-size: 20px;
+      margin-right: auto;
+    }
+
+    nav a, nav .nav-current {
+      margin-left: 18px;
+    }
+
+    nav a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    nav .nav-current {
+      color: #222;
+      font-weight: 600;
+    }
+
     .info-table td:first-child {
       font-family: 'Inter', sans-serif;
       font-size: 13px;
@@ -74,10 +102,15 @@
   </style>
 </head>
 <body>
-  <div class="container">
+    <nav>
+        <span class="nav-name">Andrew Cropper</span>
+        <a href="index.html">About</a>
+        <span class="nav-current">Join</span>
+        <a href="datasets.html">Datasets</a>
+    </nav>
 
     <section>
-      <h2>Join the group</h2>
+      <!-- <h2>Join the group</h2> -->
       <p>
         I am looking for PhD students to work on inductive logic programming (ILP).
         The exact topic is flexible.
@@ -197,6 +230,5 @@
       </table>
     </section>
 
-  </div>
 </body>
 </html>
