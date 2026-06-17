@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrew Cropper | Datasets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    html { scrollbar-gutter: stable; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 15px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 40px;
+      color: #000;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    nav {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 28px;
+      font-size: 18px;
+    }
+    .nav-name {
+      color: #222;
+      font-weight: 600;
+      font-size: 20px;
+      margin-right: auto;
+    }
+    nav a, nav .nav-current {
+      margin-left: 18px;
+    }
+    nav a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    nav .nav-current {
+      color: #222;
+      font-weight: 600;
+    }
+
+    /* Minimal Filter Layout */
+    .filter-container {
+      margin: 20px 0;
+      font-size: 16px;
+      color: #666;
+    }
+    .filter-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      color: #0066cc;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 16px;
+      margin: 0 6px;
+    }
+    .filter-btn:hover {
+      text-decoration: underline;
+    }
+    .filter-btn.active {
+      color: #222;
+      font-weight: 600;
+      cursor: default;
+    }
+    .filter-btn.active:hover {
+      text-decoration: none;
+    }
+
+    /* Scannable Table Layout */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 25px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 16px;
+    }
+    th {
+      color: #222;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-bottom: 2px solid #ddd;
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    tr:hover td {
+      background-color: #fafafa;
+    }
+    code {
+      font-family: monospace;
+      font-size: 15px;
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    .text-right {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .domain-tag {
+      color: #666;
+      font-size: 15px;
+    }
+
+    /* Format Codeblock */
+    pre {
+      background: #f8f9fa;
+      padding: 15px;
+      border-left: 3px solid #ddd;
+      overflow-x: auto;
+      font-size: 15px;
+      line-height: 1.4;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <span class="nav-name">Andrew Cropper</span>
+        <a href="index.html">About</a>
+        <a href="join.html">Join</a>
+        <span class="nav-current">Datasets</span>
+    </nav>
+
+    <section>
+      <p>We maintain a <strong><a href="https://huggingface.co/datasets/andrewcropper/ilp-datasets" target="_blank">repository</a></strong>  of datasets for relational learning and inductive logic programming.</p>
+
+      <!-- Filter Section -->
+      <div class="filter-container" id="filterContainer">
+        <span>Filter by domain:</span>
+        <button class="filter-btn active" onclick="filterDomain('All')">All</button>
+      </div>
+
+      <!-- Main Datasets Table -->
+      <div class="table-wrapper">
+          <table id="datasetsTable">
+              <thead>
+                  <tr>
+                      <th>Dataset</th>
+                      <th>Domain</th>
+                      <th>Description</th>
+                      <th class="text-right">Tasks</th>
+                  </tr>
+              </thead>
+              <tbody id="tableBody">
+                  <tr><td colspan="4" style="text-align:center; padding:30px; color:#666;">Loading datasets directly from Hugging Face...</td></tr>
+              </tbody>
+          </table>
+      </div>
+
+      <!-- <h2>Format</h2>
+      <p>Each task directory in the repository contains three core logic files configured for rule induction:</p>
+<pre><code>├── bk.pl    # Background knowledge (ground facts)
+├── exs.pl   # Positive and negative examples
+└── bias.pl  # Hypothesis search space (formatted for the Popper system)</code></pre>
+
+      <h2>Citation</h2>
+      <p>If you use these benchmarks in an academic publication, please cite our introductory survey:</p>
+<pre><code>@article{cropper2022ilp30,
+  title={Inductive logic programming at 30: a new introduction},
+  author={Cropper, Andrew and Duman{\v{c}}i{\'c}, Sebastijan},
+  journal={Journal of Artificial Intelligence Research},
+  volume={74},
+  pages={765--850},
+  year={2022}
+}</code></pre> -->
+    </section>
+
+    <script>
+        // Bypasses CORS by pointing directly to Hugging Face's open file resolution infrastructure
+        const RAW_README_URL = 'https://huggingface.co/datasets/andrewcropper/ilp-datasets/raw/main/README.md';
+        const HF_REPO_BASE = 'https://huggingface.co/datasets/andrewcropper/ilp-datasets/blob/main/';
+        let allRowsData = [];
+
+        async function loadDatasets() {
+            try {
+                const response = await fetch(RAW_README_URL);
+                if (!response.ok) throw new Error('Failed to fetch dataset repository readme.');
+                const text = await response.text();
+                parseMarkdownTable(text);
+            } catch (error) {
+                console.error(error);
+                document.getElementById('tableBody').innerHTML = `<tr><td colspan="4" style="text-align:center; color:#c00; padding:20px;">Failed to load live data. View the collection directly on <a href="https://huggingface.co/datasets/andrewcropper/ilp-datasets" target="_blank">Hugging Face</a>.</td></tr>`;
+            }
+        }
+
+        function parseMarkdownTable(markdown) {
+            const lines = markdown.split('\n');
+            let isTable = false;
+            let domains = new Set();
+            allRowsData = [];
+
+            for (let line of lines) {
+                // Pinpoint the markdown table block
+                if (line.includes('|') && line.toLowerCase().includes('dataset') && line.toLowerCase().includes('domain')) {
+                    isTable = true;
+                    continue;
+                }
+                if (isTable && line.includes('|') && line.includes('---')) continue;
+                if (isTable && !line.includes('|')) {
+                    if (allRowsData.length > 0) break; // Exited table block
+                    continue;
+                }
+
+                if (isTable) {
+                    const cols = line.split('|').map(c => c.trim()).filter(c => c !== '');
+                    if (cols.length >= 4) {
+                        const nameMatch = cols[0].match(/\[`([^`]+)`\]\(([^)]+)\)/);
+                        const cleanName = nameMatch ? nameMatch[1] : cols[0].replace(/[`\[\]]/g, '');
+                        const relativeLink = nameMatch ? nameMatch[2] : '#';
+                        const absoluteLink = HF_REPO_BASE + relativeLink;
+
+                        const domain = cols[1];
+                        const description = cols[2];
+                        const tasks = cols[3];
+
+                        domains.add(domain);
+                        allRowsData.push({ cleanName, absoluteLink, domain, description, tasks });
+                    }
+                }
+            }
+
+            // Populate the minimalist filter links inline
+            const filterContainer = document.getElementById('filterContainer');
+            Array.from(domains).sort().forEach(dom => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.textContent = dom;
+                btn.onclick = () => filterDomain(dom, btn);
+                filterContainer.appendChild(btn);
+            });
+
+            renderTable(allRowsData);
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><a href="${row.absoluteLink}" target="_blank"><code>${row.cleanName}</code></a></td>
+                    <td><span class="domain-tag">${row.domain}</span></td>
+                    <td>${row.description}</td>
+                    <td class="text-right">${row.tasks}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function filterDomain(domain, clickedBtn) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            if(clickedBtn) clickedBtn.classList.add('active');
+            else document.querySelector('.filter-btn').classList.add('active');
+
+            if (domain === 'All') {
+                renderTable(allRowsData);
+            } else {
+                const filtered = allRowsData.filter(row => row.domain === domain);
+                renderTable(filtered);
+            }
+        }
+
+        window.onload = loadDatasets;
+    </script>
+</body>
+</html>
