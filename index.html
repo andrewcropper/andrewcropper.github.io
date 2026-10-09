@@ -16,13 +16,6 @@
             margin: 0 auto;
             padding: 20px 15px;
             color: #222;
-            background-color: #fcfcfc;
-        }
-
-        h1 {
-            font-size: 32px;
-            margin: 0 0 20px 0;
-            letter-spacing: -0.5px;
         }
 
         h2 {
@@ -61,7 +54,6 @@
         .header-container img {
             width: 200px;
             height: auto;
-            border-radius: 2px;
         }
 
         .bio-text {
@@ -72,17 +64,6 @@
 
         .contact-links {
             margin: 5px 0 15px 0;
-        }
-
-        .hiring-notice {
-            background-color: #f0f7ff;
-            border-left: 4px solid #0066cc;
-            padding: 10px 15px;
-            margin: 20px 0;
-        }
-
-        .hiring-notice p {
-            margin: 0;
         }
 
         ul {
@@ -111,38 +92,6 @@
             width: 150px;
         }
 
-        nav {
-            display: flex;
-            align-items: baseline;
-            margin-bottom: 28px;
-            font-size: 18px;
-        }
-
-        .nav-name {
-            color: #222;
-            font-weight: 600;
-            font-size: 20px;
-            margin-right: auto;
-        }
-
-        nav a, nav .nav-current {
-            margin-left: 18px;
-        }
-
-        nav a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        nav .nav-current {
-            color: #222;
-            font-weight: 600;
-        }
-
         /* Responsive design for smaller screens */
         @media (max-width: 768px) {
             .header-container {
@@ -164,57 +113,51 @@
 <body>
 
     <header>
-        <!-- <h1>Andrew Cropper</h1> -->
         <div class="header-container">
             <img src="imgs/small_profile.jpg" alt="Andrew Cropper">
             <div class="bio-text">
                 <p>
                     I am an associate professor at the University of Helsinki.
-                     <!-- and PI at ELLIS Institute Finland. -->
                     Previously, I led a research group at the University of Oxford and completed my PhD at Imperial College London.
                 </p>
                 <p>
-                    <!-- My group works on <a href="https://arxiv.org/pdf/2008.07912.pdf"><b>inductive logic programming</b></a> (ILP), a form of symbolic machine learning that learns logical rules from examples and background knowledge. -->
                     My group works on <a href="https://arxiv.org/pdf/2008.07912.pdf"><b>inductive logic programming</b></a> (ILP), a form of symbolic machine learning.
-                     <!-- that learns logical rules from examples and background knowledge. -->
                     We develop the ILP system
                     <a href="https://github.com/logic-and-learning-lab/Popper">Popper</a>.
                 </p>
                 <p class="contact-links">
                     <a href="mailto:andrew.cropper@helsinki.fi">andrew.cropper@helsinki.fi</a> &nbsp;|&nbsp;
                     <a href="andrew_cropper_cv.pdf">CV</a> &nbsp;|&nbsp;
-                    <a href="https://huggingface.co/datasets/andrewcropper/ilp-datasets" target="_blank">Datasets</a>
+                    <a href="https://huggingface.co/datasets/andrewcropper/ilp-datasets">Datasets</a>
                 </p>
             </div>
         </div>
     </header>
 
-    <div class="hiring-notice">
-        I am recruiting PhD students and postdocs to work on ILP.
-        <a href="https://www.ellisinstitute.fi/postdoc-and-phd-recruit-autumn-2026">Application details</a>.
-    </div>
-
     <section>
         <h2>Logic and learning group</h2>
         <h3>Current</h3>
         <ul>
-            <li><strong><a href="https://lucasc.net/">Lucas Carr</a></strong>, PhD</li>
+
+            <li><a href="https://christophjabs.info">Christoph Jabs</a>, Postdoc</li>
+            <li><a href="https://in.linkedin.com/in/anubhaw-xess">Anubhaw Xess</a>, PhD</li>
+            <li><a href="https://lucasc.net/">Lucas Carr</a>, PhD</li>
         </ul>
 
         <h3>Former</h3>
         <ul>
-            <li><strong><a href="https://celinehocquette.github.io">Céline Hocquette</a></strong>, Postdoc, now researcher at Ndea</li>
-            <li><strong><a href="https://filipegouveia.github.io/">Filipe Gouveia</a></strong>, Postdoc, now assistant professor at University of Lisbon</li>
-            <li><strong><a href="https://minghao-liu.github.io">Minghao Liu</a></strong>, Postdoc, now postdoc at Oxford</li>
-            <li><strong><a href="https://scholar.google.com/citations?user=9zgHnV4AAAAJ">Mingyue Liu</a></strong>, Postdoc, now postdoc at Oxford</li>
-            <li><strong><a href="https://scholar.google.fi/citations?hl=en&user=BXIUNF8AAAAJ">Ruben Sharma</a></strong>, PhD (unofficial supervisor), now researcher at Ndea</li>
-            <li><strong><a href="https://scholar.google.com/citations?user=KiCL7SoAAAAJ&hl=en">Rolf Morel</a></strong>, PhD, now researcher at Intel</li>
+            <li><a href="https://celinehocquette.github.io">Céline Hocquette</a>, Postdoc, now researcher at Ndea</li>
+            <li><a href="https://filipegouveia.github.io/">Filipe Gouveia</a>, Postdoc, now assistant professor at University of Lisbon</li>
+            <li><a href="https://minghao-liu.github.io">Minghao Liu</a>, Postdoc, now postdoc at Oxford</li>
+            <li><a href="https://scholar.google.com/citations?user=9zgHnV4AAAAJ">Mingyue Liu</a>, Postdoc, now postdoc at Oxford</li>
+            <li><a href="https://scholar.google.fi/citations?hl=en&user=BXIUNF8AAAAJ">Ruben Sharma</a>, PhD (unofficial supervisor), now researcher at Ndea</li>
+            <li><a href="https://scholar.google.com/citations?user=KiCL7SoAAAAJ&hl=en">Rolf Morel</a>, PhD, now researcher at Intel</li>
         </ul>
     </section>
 
     <section>
         <h2>Publications</h2>
-        <p style="margin-bottom: 10px;">
+        <p>
             <a href="https://dblp.org/pid/153/8346.html">DBLP</a> | <a href="https://scholar.google.co.uk/citations?user=AtZc544AAAAJ">Scholar</a>
         </p>
         <table>
@@ -224,8 +167,8 @@
                 <tr><td class="venue">AAAI 2026</td><td><a href="https://arxiv.org/pdf/2508.06263">Symmetry breaking for inductive logic programming</a><br>Cropper, Cerna, and J&auml;rvisalo</td></tr>
                 <tr><td class="venue">AAAI 2026</td><td><a href="https://arxiv.org/pdf/2502.01232">Efficient rule induction by ignoring pointless rules</a><br>Cropper and Cerna</td></tr>
                 <tr><td class="venue">AAAI 2026</td><td><a href="https://arxiv.org/pdf/2404.19397">Can humans teach machines to code?</a><br>Hocquette, Langer, Cropper, and Schmid</td></tr>
-                <tr><td class="venue">Arxiv</td><td><a href="https://arxiv.org/pdf/2508.06230">Learning logical rules using minimum message length</a><br>Sharma, Dumancic, King, and Cropper</td></tr>
-                <tr><td class="venue">Arxiv</td><td><a href="https://arxiv.org/pdf/2510.24633">Symbolic snapshot ensembles</a><br>Liu and Cropper</td></tr>
+                <tr><td class="venue">arXiv 2025</td><td><a href="https://arxiv.org/pdf/2508.06230">Learning logical rules using minimum message length</a><br>Sharma, Dumancic, King, and Cropper</td></tr>
+                <tr><td class="venue">arXiv 2025</td><td><a href="https://arxiv.org/pdf/2510.24633">Symbolic snapshot ensembles</a><br>Liu and Cropper</td></tr>
 
                 <tr><td class="venue">IJCAI 2025</td><td><a href="https://arxiv.org/pdf/2408.12212">Relational decomposition for program synthesis</a><br>Hocquette and Cropper</td></tr>
                 <tr><td class="venue">AAAI 2025</td><td><a href="https://www.arxiv.org/pdf/2408.11530">Scalable knowledge refactoring using constrained optimisation</a><br>Liu, Cerna, Gouveia, and Cropper</td></tr>
@@ -249,41 +192,33 @@
                 <tr><td class="venue">IJCAI 2020</td><td><a href="https://arxiv.org/pdf/2004.09855">Learning large logic programs by going beyond entailment</a><br>Cropper and Dumančić</td></tr>
                 <tr><td class="venue">IJCAI 2020</td><td><a href="https://arxiv.org/pdf/2002.11002">Turning 30: new ideas in inductive logic programming</a><br>Cropper, Dumančić, and Muggleton</td></tr>
                 <tr><td class="venue">AAAI 2020</td><td><a href="https://arxiv.org/pdf/1911.06643">Forgetting to learn logic programs</a><br>Cropper</td></tr>
-                <tr><td class="venue">AAAI 2020</td><td><a href="https://drive.google.com/file/d/1_4G3SAo--s30hEqoGsxEtPNZo0aNHCGk/view">Learning higher-order programs through predicate invention</a><br>Cropper, Morel, and Muggleton</td></tr>
+                <tr><td class="venue">AAAI 2020</td><td><a href="pubs/aaai20-metaho.pdf">Learning higher-order programs through predicate invention</a><br>Cropper, Morel, and Muggleton</td></tr>
                 <tr><td class="venue">MLJ 2020</td><td><a href="https://arxiv.org/pdf/1906.09627">Inductive general game playing</a><br>Cropper, Evans, and Law</td></tr>
                 <tr><td class="venue">MLJ 2020</td><td><a href="https://arxiv.org/pdf/1907.10952">Logical reduction of metarules</a><br>Cropper and Tourret</td></tr>
                 <tr><td class="venue">MLJ 2020</td><td><a href="https://arxiv.org/pdf/1907.10953">Learning higher-order logic programs</a><br>Cropper, Morel, and Muggleton</td></tr>
                 <tr><td class="venue">IJCAI 2019</td><td><a href="https://arxiv.org/pdf/1904.08993">Playgol: learning programs through play</a><br>Cropper</td></tr>
                 <tr><td class="venue">JELIA 2019</td><td><a href="https://arxiv.org/pdf/1902.09900">SLD-resolution reduction of second-order Horn fragments</a><br>Tourret and Cropper</td></tr>
-                <tr><td class="venue">JELIA 2019</td><td><a href="https://drive.google.com/file/d/1__1rD9Uxwp8Eo8xhijP08kw1yyeXL7cA/view">Typed meta-interpretive learning of logic programs</a><br>Morel, Cropper, and Ong</td></tr>
-                <tr><td class="venue">MLJ 2019</td><td><a href="https://drive.google.com/file/d/1ZYoGYtft2PuaBwHEd67SoI3AeFilmI4M/view">Learning efficient logic programs</a><br>Cropper and Muggleton</td></tr>
-                <tr><td class="venue">ILP 2018</td><td><a href="https://drive.google.com/file/d/1ZHw_M2Nb-9uhlnth4EhuK42OR58-04PZ/view">Derivation reduction of metarules in meta-interpretive learning</a><br>Cropper and Tourret</td></tr>
-                <tr><td class="venue">IJCAI 2016</td><td><a href="https://drive.google.com/file/d/1_5FyVcKnWZ4RAxf410vr9cmu_DJ0UbQv/view">Learning higher-order logic programs through abstraction and invention</a><br>Cropper and Muggleton</td></tr>
-                <tr><td class="venue">IJCAI 2016</td><td><a href="https://drive.google.com/file/d/1ZEmBghSOyxoyMwkhYTPEwPnBgKxL85PT/view">Logic-based inductive synthesis of efficient programs</a><br>Cropper</td></tr>
-                <tr><td class="venue">IJCAI 2015</td><td><a href="https://drive.google.com/file/d/1ZzsofhBUGv9Yiwg8Hpjh7drOP3ZhX16Z/view">Learning efficient logical robot strategies involving composable objects</a><br>Cropper and Muggleton</td></tr>
-                <tr><td class="venue">IJCAI 2015</td><td><a href="https://drive.google.com/file/d/1ZKBAPw_zQYDDoRHX9pv41MZ7sdAV1cVi/view">Learning efficient logic programs</a><br>Cropper</td></tr>
-                <tr><td class="venue">ILP 2015</td><td><a href="https://drive.google.com/file/d/1_AOnkjPn1rtVqOP_v8vHMv9yZZFxJwPo/view">Meta-interpretive learning of data transformation programs</a><br>Cropper, Tamaddoni-Nezhad, and Muggleton</td></tr>
+                <tr><td class="venue">JELIA 2019</td><td><a href="pubs/jelia19-typed.pdf">Typed meta-interpretive learning of logic programs</a><br>Morel, Cropper, and Ong</td></tr>
+                <tr><td class="venue">MLJ 2019</td><td><a href="pubs/mlj18-metaopt.pdf">Learning efficient logic programs</a><br>Cropper and Muggleton</td></tr>
+                <tr><td class="venue">ILP 2018</td><td><a href="pubs/ilp18-dreduce.pdf">Derivation reduction of metarules in meta-interpretive learning</a><br>Cropper and Tourret</td></tr>
+                <tr><td class="venue">IJCAI 2016</td><td><a href="pubs/ijcai16-metafunc.pdf">Learning higher-order logic programs through abstraction and invention</a><br>Cropper and Muggleton</td></tr>
+                <tr><td class="venue">IJCAI 2016</td><td><a href="pubs/ijcai16-dc.pdf">Logic-based inductive synthesis of efficient programs</a><br>Cropper</td></tr>
+                <tr><td class="venue">IJCAI 2015</td><td><a href="pubs/ijcai15-metagolo.pdf">Learning efficient logical robot strategies involving composable objects</a><br>Cropper and Muggleton</td></tr>
+                <tr><td class="venue">IJCAI 2015</td><td><a href="pubs/ijcai15-dc.pdf">Learning efficient logic programs</a><br>Cropper</td></tr>
+                <tr><td class="venue">ILP 2015</td><td><a href="pubs/ilp15-datacurate.pdf">Meta-interpretive learning of data transformation programs</a><br>Cropper, Tamaddoni-Nezhad, and Muggleton</td></tr>
                 <tr><td class="venue">ILP 2015</td><td><a href="https://ceur-ws.org/Vol-1636/paper-02.pdf">Typed meta-interpretive learning for proof strategies</a><br>Farquhar, Grov, Cropper, Muggleton, and Bundy</td></tr>
-                <tr><td class="venue">SCAI 2015</td><td><a href="https://drive.google.com/file/d/1_8obQ1IpqO9qPnItwwVSmkk8mZFtc5ZU/view">Can predicate invention compensate for incomplete background knowledge?</a><br>Cropper and Muggleton</td></tr>
-                <tr><td class="venue">ILP 2014</td><td><a href="https://drive.google.com/file/d/1_YtE9NuSeVJ2Af4I7BdH9kJzPIoB4hEG/view">Logical minimisation of meta-rules within meta-interpretive learning</a><br>Cropper and Muggleton</td></tr>
+                <tr><td class="venue">SCAI 2015</td><td><a href="pubs/scai15-incomplete.pdf">Can predicate invention compensate for incomplete background knowledge?</a><br>Cropper and Muggleton</td></tr>
+                <tr><td class="venue">ILP 2014</td><td><a href="pubs/ilp14-minmeta.pdf">Logical minimisation of meta-rules within meta-interpretive learning</a><br>Cropper and Muggleton</td></tr>
             </tbody>
         </table>
     </section>
 
-    <!-- <section>
-        <h2>Past student projects</h2>
-        <ul>
-            <li><strong>Rolf Morel</strong>, PhD, <a href="https://ora.ox.ac.uk/objects/uuid:df5e4bcb-689d-4457-aefe-e4afbbb183e5/files/d3x816n230">Inductive logic programming as satisfiability modulo theories</a></li>
-            <li><strong>John Wahlig</strong>, MSc, <a href="https://arxiv.org/abs/2201.03702">Learning logic programs from noisy failures</a></li>
-            <li><strong>Brad Hunter</strong>, MSc, <a href="https://arxiv.org/abs/2112.12551">Preprocessing in inductive logic programming</a></li>
-            <li><strong>Rolf Morel</strong>, MSc, <a href="https://arxiv.org/abs/2102.12553">Refinement type directed search for meta-interpretive learning</a></li>
-            <li><strong>Bogdan Cretu</strong>, BA, <a href="https://arxiv.org/abs/2208.11656">Constraint-driven multi-task learning</a></li>
-            <li><strong>Cristian Dinu</strong>, BA, Parallel inductive logic programming</li>
-            <li><strong>Victor Vasiesiu</strong>, BA, Inductive general game playing</li>
-            <li><strong>Andrei Diaconu</strong>, BA, <a href="https://arxiv.org/abs/2011.08881">Learning functional programs with function invention and reuse</a></li>
-            <li><strong>Alastair Flynn</strong>, BA, <a href="https://arxiv.org/pdf/2008.01664">Inducing game rules from varying quality game play</a></li>
-        </ul>
-    </section> -->
+    <section>
+        <h2>Thesis</h2>
+        <p>
+            <a href="pubs/phd-thesis.pdf">Efficiently learning efficient programs</a>, PhD thesis, Imperial College London, 2017
+        </p>
+    </section>
 
 </body>
 </html>
