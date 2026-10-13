@@ -5,24 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew Cropper</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <style>
         html { scrollbar-gutter: stable; }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: system-ui, sans-serif;
             font-size: 18px;
-            line-height: 1.6;
-            max-width: 900px;
+            line-height: 1.4;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px 15px;
+            padding: 27px;
             color: #222;
+        }
+
+        h1 {
+            font-size: 24px;
+            line-height: 1.2;
+            margin: 0 0 12px;
+            font-weight: 600;
+        }
+
+        section {
+            margin-top: 32px;
         }
 
         h2 {
             font-size: 22px;
-            margin: 0.6rem 0 0.5rem 0;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 4px;
+            margin: 0 0 12px;
         }
 
         h3 {
@@ -53,13 +61,6 @@
 
         .header-container img {
             width: 200px;
-            height: auto;
-        }
-
-        .bio-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
         }
 
         .contact-links {
@@ -81,19 +82,21 @@
         }
 
         td {
-            padding: 12px 10px 12px 0;
-            border-bottom: 1px solid #eee;
+            padding: 8px 10px 8px 0;
             vertical-align: top;
         }
 
         .venue {
-            font-weight: bold;
             white-space: nowrap;
             width: 150px;
         }
 
         /* Responsive design for smaller screens */
         @media (max-width: 768px) {
+            body {
+                padding: 20px 16px;
+            }
+
             .header-container {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -115,13 +118,13 @@
     <header>
         <div class="header-container">
             <img src="imgs/small_profile.jpg" alt="Andrew Cropper">
-            <div class="bio-text">
+            <div>
+                <h1>Andrew Cropper</h1>
                 <p>
                     I am an associate professor at the University of Helsinki.
                     Previously, I led a research group at the University of Oxford and completed my PhD at Imperial College London.
-                </p>
-                <p>
-                    My group works on <a href="https://arxiv.org/pdf/2008.07912.pdf"><b>inductive logic programming</b></a> (ILP), a form of symbolic machine learning.
+                    </p><p>
+                    My group works on <a href="https://arxiv.org/pdf/2008.07912.pdf">inductive logic programming</a> (ILP), a form of symbolic machine learning.
                     We develop the ILP system
                     <a href="https://github.com/logic-and-learning-lab/Popper">Popper</a>.
                 </p>
@@ -140,18 +143,19 @@
         <ul>
 
             <li><a href="https://christophjabs.info">Christoph Jabs</a>, Postdoc</li>
-            <li><a href="https://in.linkedin.com/in/anubhaw-xess">Anubhaw Xess</a>, PhD</li>
+            <li><a href="https://zl-xiang.github.io/">Zhiliang Xiang</a>, Postdoc</li>
             <li><a href="https://lucasc.net/">Lucas Carr</a>, PhD</li>
+            <li><a href="https://in.linkedin.com/in/anubhaw-xess">Anubhaw Xess</a>, PhD</li>
         </ul>
 
         <h3>Former</h3>
         <ul>
-            <li><a href="https://celinehocquette.github.io">Céline Hocquette</a>, Postdoc, now researcher at Ndea</li>
             <li><a href="https://filipegouveia.github.io/">Filipe Gouveia</a>, Postdoc, now assistant professor at University of Lisbon</li>
+            <li><a href="https://celinehocquette.github.io">Céline Hocquette</a>, Postdoc, now researcher at Ndea</li>
             <li><a href="https://minghao-liu.github.io">Minghao Liu</a>, Postdoc, now postdoc at Oxford</li>
             <li><a href="https://scholar.google.com/citations?user=9zgHnV4AAAAJ">Mingyue Liu</a>, Postdoc, now postdoc at Oxford</li>
-            <li><a href="https://scholar.google.fi/citations?hl=en&user=BXIUNF8AAAAJ">Ruben Sharma</a>, PhD (unofficial supervisor), now researcher at Ndea</li>
             <li><a href="https://scholar.google.com/citations?user=KiCL7SoAAAAJ&hl=en">Rolf Morel</a>, PhD, now researcher at Intel</li>
+            <li><a href="https://scholar.google.fi/citations?hl=en&user=BXIUNF8AAAAJ">Ruben Sharma</a>, PhD (unofficial supervisor), now researcher at Ndea</li>
         </ul>
     </section>
 
